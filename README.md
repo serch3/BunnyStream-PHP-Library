@@ -53,8 +53,7 @@ returns `Json string`
 
 Upload Video
 ```php
-$BunnyStream->upload($filename, $title)
-);
+$BunnyStream->upload($filename, $title);'
 ```
 `$filename` File to upload `string`
 
@@ -81,8 +80,7 @@ $BunnyStream->delete($guid);
 
 Update Video Info
 ```php
-$BunnyStream->update($guid, $name)
-);
+$BunnyStream->update($guid, $name);
 ```
 
 `$guid` ID of the video `string`
@@ -111,7 +109,6 @@ returns `PHP Object`
 Upload Thumbnail 
 ```php
 $BunnyStream->uploadThumbnail($videoId, $url);
-
 ```
 
 `$videoId` ID of the video `string`
@@ -123,7 +120,6 @@ $BunnyStream->uploadThumbnail($videoId, $url);
 Fetch Video
 ```php
 $BunnyStream->fetch($url, $videoId);
-
 ```
 
 `$url` External video URL `string`
@@ -139,7 +135,6 @@ optional:
 Add Caption
 ```php
 $BunnyStream->addCaption($source, $videoId, $srclang, $label);
-
 ```
 
 `$source` path of the captions file `string`
@@ -156,7 +151,6 @@ $BunnyStream->addCaption($source, $videoId, $srclang, $label);
 Delete Caption
 ```php
 $BunnyStream->deleteCaption($videoId, $srclang);
-
 ```
 
 `$videoId` ID of the video `string`
@@ -208,8 +202,7 @@ $BunnyStream->deleteCollection($collectionId);
 
 Update Collection
 ```php
-$BunnyStream->updateCollection($collectionId, $name))
-);
+$BunnyStream->updateCollection($collectionId, $name);
 ```
 
 `$collectionId` ID of the Collection `string`
