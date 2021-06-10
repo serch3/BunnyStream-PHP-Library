@@ -93,7 +93,7 @@ class BunnyStream
     /**
      * @param string $videoId
      * @throws BunnyStreamException
-     * @return string
+     * @return string|object
      */
     public function get($videoId)
     {
@@ -294,8 +294,10 @@ class BunnyStream
         if (!is_readable($source)) {
             throw new BunnyStreamException("The source file must be readable.");
         }
-        $data = json_encode(array('srclang' => $srclang, 'label' => $label, 'captionsFile' => $source));
-        $composition = $videoId . '/' . $srclang;
+        $source_content = file_get_contents($source);
+        $file = base64_encode($source_content);
+        $data = json_encode(array('srclang' => $srclang, 'label' => $label, 'captionsFile' => $file));
+        $composition = $videoId . '/captions/' . $srclang;
 
         return $this->APIcall($composition, "POST", null, null, $data);
     }
@@ -313,7 +315,7 @@ class BunnyStream
         if (!isset($videoId, $srclang)) {
             throw new BunnyStreamException("Missing required arguments.");
         }
-        $composition = $videoId . '/' . $srclang;
+        $composition = $videoId . '/captions/' . $srclang;
 
         return $this->APIcall($composition, "DELETE");
     }
